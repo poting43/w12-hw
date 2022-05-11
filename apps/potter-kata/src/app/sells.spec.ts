@@ -15,6 +15,6 @@ describe('Sells', () => {
     const sells = new Sells();
     sells.buy(1,1);
     sells.buy(2,1);
-    expect(sells.price).toBe(100);
+    expect(sells.price).toBe(190);
   });
 });
