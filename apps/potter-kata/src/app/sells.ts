@@ -1,7 +1,10 @@
 export class Sells {
-    buy(pins: number) {}
+    private _price = 0;
+    buy(pins: number) {
+        this._price += pins*100;
+    }
 
     get price(){
-        return -1;
+        return this._price;
     }
 }
