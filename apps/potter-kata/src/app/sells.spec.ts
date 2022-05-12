@@ -41,4 +41,14 @@ describe('Sells', () => {
     sells.buy(4,1);
     expect(sells.price).toBe(590);
   });
+
+  test('Sell 2 for the first episode, 2 for the second episode, 2 for the third episode, 1 for the fourth episode, 1 for the fifth episode', () => {
+    const sells = new Sells();
+    sells.buy(1,2);
+    sells.buy(2,2);
+    sells.buy(3,2);
+    sells.buy(4,1);
+    sells.buy(5,1);
+    expect(sells.price).toBe(645);
+  });
 });
