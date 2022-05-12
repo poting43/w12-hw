@@ -1,17 +1,32 @@
 export class Sells {
     private _price = 0;
-    private _amount = 0;
-    private episode = new Set();
-    private arr:number[] = [];
+    private foo = new Map();
+
     buy(eps: number, amount: number) {
-        this.episode.add(eps);
-        this.arr[eps] = amount;
-        this._amount += amount;
+        if(this.foo.has("eps"))
+            this.foo.set(eps,amount+this.foo.get(eps));
+        else
+            this.foo.set(eps,amount);
     }
 
     get price(){
-        this._price += this._amount*100;
-        this._price -= this._amount*(this.episode.size-1)*5;
+        while(this.foo.size){
+            switch(this.foo.size){
+                case 1:
+                    this._price += 100;
+                    break;
+                default:
+                    this._price += 190;
+                    break;
+            }
+            for(let key of this.foo.keys()){
+                if(this.foo.get(key)==1)
+                    this.foo.delete(key);
+                else
+                    this.foo.set(key,this.foo.get(key)-1);
+            }
+        }    
+            
         return this._price;
     }
 }
