@@ -15,8 +15,11 @@ export class Sells {
                 case 1:
                     this._price += 100;
                     break;
-                default:
+                case 2:
                     this._price += 190;
+                    break;
+                default:
+                    this._price += 270;
                     break;
             }
             for(let key of this.foo.keys()){
